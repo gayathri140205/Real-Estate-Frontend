@@ -94,7 +94,7 @@ export default function Search() {
             const sort = e.target.value.split('_')[0] || 'created_at';
             const order = e.target.value.split('_')[1] || 'desc';
             setSidebardata({ ...sidebardata, sort, order });
-        };
+        }
     };
     
     const handleSubmit = async (e) => {

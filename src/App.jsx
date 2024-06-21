@@ -1,10 +1,10 @@
-
+// src/App.jsx
 
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './redux/store'; // Correct import path for default export
+import { store } from './redux/store'; // Ensure correct import path
 import Header from './components/Header';
 import Home from './pages/Home';
 import Signin from './pages/Signin';
@@ -20,7 +20,7 @@ import Search from './pages/Search';
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <Router>
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -29,13 +29,15 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
           <Route path="/listing/:listingId" element={<Listing />} />
-          
+
           {/* Private routes */}
-          <PrivateRoute path="/profile" element={<Profile />} />
-          <PrivateRoute path="/create-listing" element={<CreateListing />} />
-          <PrivateRoute path="/update-listing/:listingId" element={<UpdateListing />} />
+          <Route element={<PrivateRoute />}>
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/create-listing" element={<CreateListing />} />
+            <Route path="/update-listing/:listingId" element={<UpdateListing />} />
+          </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </Provider>
   );
 };

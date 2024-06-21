@@ -43,6 +43,7 @@ export default function CreateListing() {
     fetchListing();
   }, []);
 
+  // eslint-disable-next-line no-unused-vars
   const handleImageSubmit = (e) => {
     if (files.length > 0 
       && files.length + formData.imageUrls.length < 7) {
@@ -57,6 +58,7 @@ export default function CreateListing() {
         setFormData({ ...formData, imageUrls: formData.imageUrls.concat(urls) });
         setImageUploadError(false);
         setUploading(false); 
+       // eslint-disable-next-line no-unused-vars
        }).catch((err) => {
         setImageUploadError('image upload failed (2 mb max per image)');
         setUploading(false); 
@@ -76,6 +78,7 @@ export default function CreateListing() {
       uploadTask.on(
         "state_changed",
         (snapshot) => {
+         // eslint-disable-next-line no-unused-vars
          const prgrs =
            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
         },

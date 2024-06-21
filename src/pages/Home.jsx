@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -65,7 +66,7 @@ export default function Home() {
            from.           
       </div>
       <Link to={"/search"} className='text-xs sm:text-sm text-blue-800 font-bold text-3xl lg:text-6xl'> 
-      Let's get started...
+      Lets get started...
       </Link>
      </div>
 

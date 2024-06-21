@@ -1,20 +1,14 @@
-// components/PrivateRoute.js
+// src/components/PrivateRoute.js
 
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
-import { Route, Navigate } from 'react-router-dom';
+import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-// eslint-disable-next-line react/prop-types
-const PrivateRoute = ({ element, ...rest }) => {
-  const { currentUser } = useSelector((state) => state.user); // Replace with your actual selector
+const PrivateRoute = () => {
+  const currentUser = useSelector((state) => state.user.currentUser); // Ensure this matches your state structure
 
-  return (
-    <Route
-      {...rest}
-      element={currentUser ? element : <Navigate to="/sign-in" replace />}
-    />
-  );
+  return currentUser ? <Outlet /> : <Navigate to="/sign-in" replace />;
 };
 
 export default PrivateRoute;

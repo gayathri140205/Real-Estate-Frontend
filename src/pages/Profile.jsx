@@ -40,6 +40,7 @@ export default function Profile() {
        snapshot.totalBytes) * 100;
        setFilePerc(Math.round(progress));
       },
+      // eslint-disable-next-line no-unused-vars
       (error) => {
         setFileUploadErr(true);
       },
@@ -80,6 +81,7 @@ export default function Profile() {
       } 
     };
 
+    // eslint-disable-next-line no-unused-vars
     const handleDeleteUser = async(e) => {
       
       try {
