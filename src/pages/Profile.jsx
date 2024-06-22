@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useDispatch, useSelector } from 'react-redux';
 import { useRef, useState, useEffect} from 'react';
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
@@ -40,7 +41,6 @@ export default function Profile() {
        snapshot.totalBytes) * 100;
        setFilePerc(Math.round(progress));
       },
-      // eslint-disable-next-line no-unused-vars
       (error) => {
         setFileUploadErr(true);
       },
@@ -60,7 +60,7 @@ export default function Profile() {
        e.preventDefault();
       try {
         dispatch(updateUserStart());
-        const res = await fetch(`/api/user/update/${currentUser.
+        const res = await fetch(`https://real-estate-backend-1-mixa.onrender.com/api/user/update/${currentUser.
           _id}`, {
             method: 'POST',
             headers: {
@@ -81,12 +81,11 @@ export default function Profile() {
       } 
     };
 
-    // eslint-disable-next-line no-unused-vars
     const handleDeleteUser = async(e) => {
-      
+     
       try {
         dispatch(deleteUserStart());
-        const res = await fetch(`/api/user/delete/${currentUser.
+        const res = await fetch(`https://real-estate-backend-1-mixa.onrender.com/api/user/delete/${currentUser.
           _id}`, {
             method: 'DELETE',
           });
@@ -105,7 +104,7 @@ export default function Profile() {
     const handleSignOut = async() =>{
         try {
           dispatch(signOutUserStart());
-          const res = await fetch('/api/auth/signout');
+          const res = await fetch('https://real-estate-backend-1-mixa.onrender.com/api/auth/signout');
           const data = res.json();
 
           if (data.success === false) {
@@ -121,7 +120,7 @@ export default function Profile() {
     const handleShowListings = async () => {
       try {
         setShowListingsError(false);
-        const res = await fetch(`/api/user/listings/${currentUser.
+        const res = await fetch(`https://real-estate-backend-1-mixa.onrender.com/api/user/listings/${currentUser.
           _id}`);
         const data = await res.json();
         if(data.success === false) {
@@ -137,7 +136,7 @@ export default function Profile() {
   
     const handleListingDelete = async (listingid) => {
         try {
-          const res = await fetch(`/api/listing/delete/${listingid}`, {
+          const res = await fetch(`https://real-estate-backend-1-mixa.onrender.com/api/listing/delete/${listingid}`, {
              method: 'DELETE',
           });
         const data = await res.json();

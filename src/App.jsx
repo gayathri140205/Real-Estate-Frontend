@@ -4,14 +4,14 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { store } from './redux/store'; // Ensure correct import path
+import { store } from './redux/store'; 
 import Header from './components/Header';
 import Home from './pages/Home';
 import Signin from './pages/Signin';
 import SignUp from './pages/SignUp';
 import About from './pages/About';
 import Profile from './pages/Profile';
-import PrivateRoute from './components/PrivateRoute'; // Ensure correct import path
+import PrivateRoute from './components/PrivateRoute'; 
 import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
@@ -29,6 +29,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/search" element={<Search />} />
           <Route path="/listing/:listingId" element={<Listing />} />
+          
 
           {/* Private routes */}
           <Route element={<PrivateRoute />}>
