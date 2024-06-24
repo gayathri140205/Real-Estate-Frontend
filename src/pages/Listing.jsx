@@ -25,11 +25,11 @@ export default function Listing() {
 
   useEffect(() => {
     const fetchListing = async () => {
-      if (!params.listingId || params.listingId === 'undefined') {
-        console.error('Listing ID is invalid:', params.listingId);
-        setError(true);
-        return;
-      }
+      // if (!params.listingId || params.listingId === 'undefined') {
+      //   console.error('Listing ID is invalid:', params.listingId);
+      //   setError(true);
+      //   return;
+      // }
 
       try {
         setLoading(true);
