@@ -126,7 +126,7 @@ export default function CreateListing() {
          },
          body: JSON.stringify({
           ...formData,
-          userRef: currentUser._id,
+          userRef: currentUser.user._id,
          }),
       });
       
@@ -223,7 +223,7 @@ export default function CreateListing() {
               onChange={handleChange}
               value={formData.bedrooms}
               />
-              <p>Beds</p>
+              <p>Bedrooms</p>
             </div>
             <div className='flex items-center gap-2'>
               <input type="number" id='bathrooms' min='1' 
@@ -244,7 +244,7 @@ export default function CreateListing() {
               rounded-lg' />
               <div className='flex flex-col items-center'>
                 <p>Regular price</p>
-                <span className='text-xs'>($ / month)</span>
+                <span className='text-xs'>(Rs / month)</span>
               </div>
             </div>
             { formData.offer && (
@@ -259,7 +259,7 @@ export default function CreateListing() {
                 />
                 <div className='flex flex-col items-center'>
                   <p>Discounted price</p>
-                  <span className='text-xs'>($ / month)</span>
+                  <span className='text-xs'>(Rs)</span>
                 </div>
               </div>
             )}
